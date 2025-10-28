@@ -1,8 +1,3 @@
-/**
- * System Monitoring Script
- * Supports both production and development modes
- */
-
 const ENV = process.env.NODE_ENV || 'production';
 
 const monitorConfig = {
@@ -16,6 +11,12 @@ const monitorConfig = {
     alertThreshold: 90,
     debugMode: true,
     verboseLogging: true
+  },
+  experimental: {  // AI features optional
+    interval: 30000,
+    alertThreshold: 75,
+    aiEnabled: true,
+    mlModelPath: './models/anomaly-detection.h5'
   }
 };
 
@@ -29,25 +30,15 @@ console.log('=================================');
 
 function checkSystemHealth() {
   const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] Checking system health...`);
   
-  if (config.debugMode) {
-    console.log(`\n[${timestamp}] === DETAILED HEALTH CHECK ===`);
-  } else {
-    console.log(`[${timestamp}] Checking system health...`);
-  }
-  
-  console.log('✓ CPU usage: Normal');
-  console.log('✓ Memory usage: Normal');
-  console.log('✓ Disk space: Adequate');
-  
-  if (config.debugMode) {
-    console.log('✓ Hot reload: Active');
-    console.log('✓ Debug port: 9229');
+  // Add AI checks if enabled
+  if (config.aiEnabled) {
+    console.log('🤖 Running AI prediction...');
   }
   
   console.log('System Status: HEALTHY');
 }
 
-console.log(`Monitoring every ${config.interval}ms`);
 setInterval(checkSystemHealth, config.interval);
 checkSystemHealth();

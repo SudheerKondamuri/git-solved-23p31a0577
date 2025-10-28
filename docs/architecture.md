@@ -3,6 +3,8 @@
 ## Overview
 DevOps Simulator follows a microservices architecture designed for high availability and scalability. This document covers both production and development configurations.
 
+**⚠️ Note**: Experimental features exist in the `conflict-simulator` branch. These include AI/ML integration, multi-cloud orchestration, and advanced monitoring.
+
 ## Components
 
 ### 1. Application Server
@@ -38,3 +40,11 @@ DevOps Simulator follows a microservices architecture designed for high availabi
 ## Security
 - **Production**: SSL/TLS encryption, strict access controls
 - **Development**: Relaxed security for easier debugging
+
+---
+
+## Experimental Features (Optional)
+- AI/ML enhanced predictive scaling
+- Multi-cloud orchestration
+- Event-driven architecture with Kafka message queues
+- Advanced monitoring with AI log analysis
